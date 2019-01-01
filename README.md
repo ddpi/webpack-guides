@@ -4,7 +4,8 @@ webpack.js.orgのガイド (Getting Started)を試す https://webpack.js.org/gui
 https://webpack.js.org/guides/getting-started/
 
 
-## メモ
+## Getting Started
+
 * 最初にREADME.md作成
 * 先にpackage.jsonを初期生成
 ```
@@ -43,4 +44,8 @@ npm install
   Standardsではセミコロンは省略
   https://standardjs.com/#the-rules
 
-  
+* Q: dist/index.htmlは直接編集する？
+
+## Asset Management
+* CSS等のローダーをwebpack.config.jsに指定
+* 
