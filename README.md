@@ -48,4 +48,8 @@ npm install
 
 ## Asset Management
 * CSS等のローダーをwebpack.config.jsに指定
-* 
+
+## Output Management
+* distのjsやindex.htmlを自動生成
+  * index.htmlはHtmlWebpackPluginで生成
+  * 
