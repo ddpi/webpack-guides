@@ -52,4 +52,13 @@ npm install
 ## Output Management
 * distのjsやindex.htmlを自動生成
   * index.htmlはHtmlWebpackPluginで生成
-  * 
+
+## githubで管理開始
+* githubにリポジトリ作成
+* ローカルgitをリモートに紐付け
+
+```
+git remote add origin https://github.com/ddpi/webpack-guides.git
+git push --set-upstream origin master
+```
+* 参考 https://qiita.com/riversun/items/29d5264480dd06c7b9fb
