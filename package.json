@@ -4,7 +4,8 @@
   "description": "webpack.js.orgのガイドを試す https://webpack.js.org/guides/",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
