@@ -2,7 +2,7 @@
   "name": "webpack-guides",
   "version": "1.0.0",
   "description": "webpack.js.orgのガイドを試す https://webpack.js.org/guides/",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +18,9 @@
     "eslint-plugin-standard": "^4.0.0",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "npm-install-peers": "^1.2.1"
   }
 }
