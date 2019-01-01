@@ -38,3 +38,9 @@ npm install -g npm-install-peers
 npm cache clean
 npm install
 ```
+
+* JavaScriptのスタイル
+  Standardsではセミコロンは省略
+  https://standardjs.com/#the-rules
+
+  
