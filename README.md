@@ -108,3 +108,15 @@ git push --set-upstream origin master
 * package.jsonのscriptsで指定しているwebpack系のエントリーにはどのconfigを使うか指定
 * nodeを呼び出しているエントリー(server)は、server.js内に参照するconfigを指定した（切り替えられる用法が良い？）
 * prodでも`devtool: 'source-map'`は指定した方が良いらしい。ただし、公開しないよう注意　　https://webpack.js.org/configuration/devtool/
+
+## Code Splitting
+* エントリーポイントを複数にした場合のモジュールの重複を避けるためのwebpack.conifg.js指定
+```
+optimization: {
+  splitChunks: {
+    chunks: 'all'
+  }
+}
+```
+* scriptの先頭でimportしないダイナミックインポート
+* Prefetch, Preload

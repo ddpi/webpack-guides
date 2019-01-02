@@ -9,15 +9,16 @@ if (process.env.NODE_ENV !== 'production') {
   console.log('Looks like in production')
 }
 
-function getComponent () {
+async function getComponent () {
 
   // const btn = document.createElement('button')
 
   // Lodash, currently included via a script, is required for this line to work
-  return import(/* webpackChunkName: "lodash" */ 'lodash').then(({ default: _ }) => {
-    let element = document.createElement('div')
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ')
-  /*
+  let element = document.createElement('div')
+  const { default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash')
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ')
+
+    /*
   element.innerHTML = [
     'Hello webpack!',
     '5 cubed is equal to ' + cube(5)
@@ -32,8 +33,8 @@ function getComponent () {
   element.appendChild(btn)
 */
     return element
-  })
 }
+
 //let element = component()
 getComponent().then( component => {
   document.body.appendChild(component)
