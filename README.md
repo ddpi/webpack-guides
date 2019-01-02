@@ -123,3 +123,7 @@ optimization: {
 
 ## Lazy Loading
 * ボタンが押されたタイミングでインポートするサンプル
+
+## Caching
+* `npm run build`から生成されるjsを分割し、ハッシュ値で管理
+* さらにnode_module内のbundleはハッシュを変更しない

@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import './style.css'
-// import printMe from './print.js'
+import printMe from './print.js'
 // import { cube } from './math.js'
 
 if (process.env.NODE_ENV !== 'production') {
@@ -21,10 +21,7 @@ function component () {
 
   element.classList.add('hello')
 
-  btn.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
-    const print = module.default
-    print()
-  })
+  btn.onclick = printMe
 
   return element
 }
