@@ -77,3 +77,6 @@ git push --set-upstream origin master
     disableHostCheck: true // 同上
   },
 ```
+* webpack-dev-middlewareを利用
+  * expressをインストールして、server.jsを追加
+  * こちらではwebpack-dev-serverで出ていたエラーは出ない
