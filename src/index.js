@@ -1,4 +1,4 @@
-// import _ from 'lodash'
+import _ from 'lodash'
 import './style.css'
 import printMe from './print.js'
 // import { cube } from './math.js'
@@ -9,42 +9,27 @@ if (process.env.NODE_ENV !== 'production') {
   console.log('Looks like in production')
 }
 
-async function getComponent () {
-
-  // const btn = document.createElement('button')
-
-  // Lodash, currently included via a script, is required for this line to work
+function component () {
   let element = document.createElement('div')
-  const { default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash')
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ')
+  const btn = document.createElement('button')
+  const br = document.createElement('br')
 
-    /*
-  element.innerHTML = [
-    'Hello webpack!',
-    '5 cubed is equal to ' + cube(5)
-  ].join('\n\n')
-  */
- /*
+  btn.innerHTML = 'Click me and look at the console!'
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ')
+  element.appendChild(br)
+  element.appendChild(btn)
+
   element.classList.add('hello')
 
-  btn.innerHTML = 'Click me and check the console!'
   btn.onclick = printMe
 
-  element.appendChild(btn)
-*/
-    return element
+  return element
 }
 
-//let element = component()
-getComponent().then( component => {
-  document.body.appendChild(component)
-})
+document.body.appendChild(component())
 
 if (module.hot) {
   module.hot.accept('./print.js', function () {
     console.log('Accepting the updated printMe module!')
-    document.body.removeChild(element)
-    element = component()
-    document.body.appendChild(element)
   })
 }
