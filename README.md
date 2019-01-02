@@ -80,3 +80,12 @@ git push --set-upstream origin master
 * webpack-dev-middlewareを利用
   * expressをインストールして、server.jsを追加
   * こちらではwebpack-dev-serverで出ていたエラーは出ない
+
+## Hot Module Replacement
+* webpack-hot-middlewareを利用（webpack-dev-serverではエラー）
+* 以下のURLを参照
+* https://github.com/webpack-contrib/webpack-hot-middleware
+* https://github.com/webpack-contrib/webpack-hot-middleware/blob/master/example/webpack.config.js
+* server.jsをwebpack-hot-middlewareを使うよう設定
+* index.jsにprint.jsの変更を検出するよう`module.hot.accept`追加
+* リビルドしただけではDOMツリーは更新されていない。`module.hot.accept`のコールバックでDOMを変更する必要あり
