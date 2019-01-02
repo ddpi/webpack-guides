@@ -120,3 +120,6 @@ optimization: {
 ```
 * scriptの先頭でimportしないダイナミックインポート
 * Prefetch, Preload
+
+## Lazy Loading
+* ボタンが押されたタイミングでインポートするサンプル
