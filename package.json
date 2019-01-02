@@ -13,6 +13,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "sideEffects": [
+    "*.css"
+  ],
   "devDependencies": {
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.1.0",

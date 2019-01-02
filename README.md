@@ -89,3 +89,15 @@ git push --set-upstream origin master
 * server.jsをwebpack-hot-middlewareを使うよう設定
 * index.jsにprint.jsの変更を検出するよう`module.hot.accept`追加
 * リビルドしただけではDOMツリーは更新されていない。`module.hot.accept`のコールバックでDOMを変更する必要あり
+
+## Tree Shaking
+* 不要なexportをbundleに入れない
+* webpack.config.jsに以下を指定
+  ```
+  mode: 'development',
+  optimization: {
+    usedExports: true
+  }
+  ```
+* modeをproductionにするとminifyされ、利用されていないexportも削除される
+* CSSはpackage.jsonのsideEffectsに追加すべし（importされたところで処理されるものはsideEffectsに追加）
