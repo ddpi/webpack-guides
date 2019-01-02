@@ -101,3 +101,10 @@ git push --set-upstream origin master
   ```
 * modeをproductionにするとminifyされ、利用されていないexportも削除される
 * CSSはpackage.jsonのsideEffectsに追加すべし（importされたところで処理されるものはsideEffectsに追加）
+
+## Production
+* webpack-mergeを使ってwebpack.config.jsをcommon, dev, prodの3つに分割
+* webpack-mergeは、JSON内の定義を「うまく」マージしてくれる様子 https://github.com/survivejs/webpack-merge
+* package.jsonのscriptsで指定しているwebpack系のエントリーにはどのconfigを使うか指定
+* nodeを呼び出しているエントリー(server)は、server.js内に参照するconfigを指定した（切り替えられる用法が良い？）
+* prodでも`devtool: 'source-map'`は指定した方が良いらしい。ただし、公開しないよう注意　　https://webpack.js.org/configuration/devtool/
