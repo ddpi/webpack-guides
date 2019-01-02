@@ -62,3 +62,18 @@ git remote add origin https://github.com/ddpi/webpack-guides.git
 git push --set-upstream origin master
 ```
 * 参考 https://qiita.com/riversun/items/29d5264480dd06c7b9fb
+
+## Development
+* webpack.config.jsに`devtoo: 'inline-source-map'`でbundle前のソースでのエラー表示
+* package.jsonのscriptsに`"watch": "webpack --watch"`追加、`$ npm run watch`でソース変更ごとに再ビルドされる
+* webpack-dev-serverの使用
+  * webpack.config.jsに以下を指定
+  * WebSocket関連のエラー([WDS] Disconnected)、Type Errorが発生している。要対応
+```
+  devServer: {
+    contentBase: './dist',
+    open: 'Google Chrome', // ブラウザをChromeに指定
+    headers: { 'Access-Control-Allow-Origin': '*' }, // [WDS] Disconnected対応。https://github.com/webpack/webpack-dev-server/issues/851
+    disableHostCheck: true // 同上
+  },
+```
