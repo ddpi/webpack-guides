@@ -44,5 +44,6 @@ document.body.appendChild(component())
 if (module.hot) {
   module.hot.accept('./print.js', function () {
     console.log('Accepting the updated printMe module!')
+    // DOMを再構築しないと表示は変更されない
   })
 }

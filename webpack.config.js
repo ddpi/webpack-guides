@@ -6,21 +6,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { getIfUtils, removeEmpty } = require('webpack-config-utils')
 const path = require('path')
 
-const { ifProduction, ifNotProduction } = getIfUtils(process.env.NODE_ENV)
+const { ifProduction, ifDevelopment } = getIfUtils(process.env.NODE_ENV)
 
 module.exports = {
   mode: ifProduction('production', 'development'),
   entry: './src/index.js',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    host: 'localhost',
+    port: 3000,
+    inline: true,
+    hot: true
   },
-  plugins: [
+  plugins: removeEmpty([
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: ifProduction('Learning Webpack Production', 'Learning Webpack Development')
-    })
-  ],
+    }),
+    ifDevelopment(new webpack.HotModuleReplacementPlugin())
+  ]),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
