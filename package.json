@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch --config webpack.config.js",
-    "start:dev": "webpack-dev-server",
-    "start:prod": "http-server dist",
-    "server": "node server.js",
-    "build": "webpack --config webpack.config.js"
+    "start:dev": "NODE_ENV=development webpack-dev-server",
+    "start:prod": "NODE_ENV=production http-server dist",
+    "server": "NODE_ENV=development node server.js",
+    "build:dev": "NODE_ENV=development webpack --config webpack.config.js",
+    "build:prod": "NODE_ENV=production webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +33,7 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.1.2",
+    "webpack-config-utils": "^2.3.1",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-dev-server": "^3.1.14",
     "webpack-hot-middleware": "^2.24.3",

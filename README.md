@@ -130,3 +130,9 @@ optimization: {
 
 ## Progressive Web Application
 * オフラインでも動作するようWorkboxを追加
+
+## Webpack Config Utils
+* 1つのConfigファイル内にdev, prod設定を記述 https://github.com/kentcdodds/webpack-config-utils
+* https://medium.com/@ryandrewjohnson/one-webpack-config-to-rule-them-all-environments-that-is-277457769779
+* removeEmptyは配列の前に入れて、配列の要素数による問題を回避する
+  

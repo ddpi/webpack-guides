@@ -3,10 +3,13 @@
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { getIfUtils, removeEmpty } = require('webpack-config-utils')
 const path = require('path')
 
-const config = {
-  mode: 'development',
+const { ifProduction, ifNotProduction } = getIfUtils(process.env.NODE_ENV)
+
+module.exports = {
+  mode: ifProduction('production', 'development'),
   entry: './src/index.js',
   devtool: 'inline-source-map',
   devServer: {
@@ -15,7 +18,7 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Learning Webpack'
+      title: ifProduction('Learning Webpack Production', 'Learning Webpack Development')
     })
   ],
   output: {
@@ -23,7 +26,7 @@ const config = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [
+    rules: removeEmpty([
       {
         test: /\.css$/,
         use: [
@@ -31,8 +34,6 @@ const config = {
           'css-loader'
         ]
       }
-    ]
+    ])
   }
 }
-
-module.exports = config
