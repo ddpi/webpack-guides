@@ -5,10 +5,11 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch --config webpack.dev.js",
-    "start": "http-server dist",
+    "watch": "webpack --watch --config webpack.config.js",
+    "start:dev": "webpack-dev-server",
+    "start:prod": "http-server dist",
     "server": "node server.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",

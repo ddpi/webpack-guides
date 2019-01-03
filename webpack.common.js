@@ -16,7 +16,7 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin()
   ],
   output: {
-    filename: '[name].[contenthash].js',
+    filename: '[name].[hash].js', // [contenthash]ではwebpack-hot-middlewareでエラー
     // chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
@@ -37,8 +37,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
-          'css-loader'
+          { loader: 'style-loader' },
+          { loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          }
         ]
       }
     ]

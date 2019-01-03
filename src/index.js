@@ -3,6 +3,8 @@ import './style.css'
 import printMe from './print.js'
 // import { cube } from './math.js'
 
+/* ServiceWorker登録 */
+/*
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/service-worker.js').then(registration => {
@@ -12,6 +14,7 @@ if ('serviceWorker' in navigator) {
     })
   })
 }
+*/
 
 if (process.env.NODE_ENV !== 'production') {
   console.log('Looks like we are in development mode!')
