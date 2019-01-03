@@ -14,6 +14,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
+    open: 'Google Chrome',
     host: 'localhost',
     port: 3000,
     inline: true,

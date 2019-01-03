@@ -73,7 +73,9 @@ git push --set-upstream origin master
   devServer: {
     contentBase: './dist',
     open: 'Google Chrome', // ブラウザをChromeに指定
-    headers: { 'Access-Control-Allow-Origin': '*' }, // [WDS] Disconnected対応。https://github.com/webpack/webpack-dev-server/issues/851
+    host: 'localhost',
+    port: 3000,
+    headers: { 'Access-Control-Allow-Origin': '*' }, // 不要？https://github.com/webpack/webpack-dev-server/issues/851
     disableHostCheck: true // 同上
   },
 ```
