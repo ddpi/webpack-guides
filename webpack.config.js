@@ -1,7 +1,7 @@
 // Webpack config toolで生成 https://webpack.jakoblind.no/
 
 const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { getIfUtils, removeEmpty } = require('webpack-config-utils')
 const path = require('path')
@@ -21,7 +21,7 @@ module.exports = {
     hot: true
   },
   plugins: removeEmpty([
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: ifProduction('Learning Webpack Production', 'Learning Webpack Development')
     }),
