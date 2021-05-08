@@ -41,7 +41,7 @@
     "workbox-webpack-plugin": "^6.0.2"
   },
   "dependencies": {
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "npm-install-peers": "^1.2.1"
   }
 }
